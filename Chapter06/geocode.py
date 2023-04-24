@@ -69,3 +69,10 @@ def geocode_bulk(data, column="address", verbose=False):
         print(f"{len(errors)}/{len(data)} rows failed")
 
     return result, errors
+
+path_in = 'Chapter06/cities.csv'
+path_out= 'Chapter06/geocoded.csv'
+
+data=read_csv(path_in)
+results, errors = geocode_bulk(data, column='name', verbose=True)
+write_csv(results, path_out)
